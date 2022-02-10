@@ -1,3 +1,17 @@
+class Solution:
+    def search_insert_position(self, nums: 'List[int]', target: 'int') -> int :
+        low, high = 0, len(num)-1
+        while low <= high: # 等號成立的時候，就可以進行回傳
+            mid = (low + high) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                high = mid - 1
+            else:
+                low = mid + 1
+        return low
+
+
 
 """
 https://leetcode-cn.com/problems/search-insert-position/
@@ -26,7 +40,6 @@ https://leetcode-cn.com/problems/search-insert-position/
 输入: nums = [1], target = 0
 输出: 0
  
-
 提示:
 1 <= nums.length <= 104
 -104 <= nums[i] <= 104
